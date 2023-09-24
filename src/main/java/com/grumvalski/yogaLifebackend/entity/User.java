@@ -1,26 +1,26 @@
-package com.grumvalski.yogaLifebackend.dto;
+package com.grumvalski.yogaLifebackend.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
+public class User {
 
-
-public class UserRegistration {
+    @Id
+    private String id;
     private String name;
     private String lastName;
     private String email;
-    private String phone;
     private String password;
-    private String confirmPassword;
 
-    public UserRegistration() {
+    public User() {
     }
 
-    public UserRegistration(String name, String lastName, String email, String phone, String password, String confirmPassword) {
+    public User(String name, String lastName, String email, String password) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
-        this.phone = phone;
         this.password = password;
-        this.confirmPassword = confirmPassword;
     }
 
     public String getName() {
@@ -47,27 +47,11 @@ public class UserRegistration {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
     }
 }
