@@ -1,10 +1,10 @@
 package com.grumvalski.yogaLifebackend.security;
 
+
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.RSASSASigner;
 import com.nimbusds.jose.crypto.RSASSAVerifier;
-import com.nimbusds.jose.jwk.JWK;
-import com.nimbusds.jose.jwk.JWKSet;
+
 import com.nimbusds.jwt.JWTClaimsSet;
 import com.nimbusds.jwt.SignedJWT;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
@@ -26,10 +26,16 @@ public class JwtCreator {
 
     public static String createJwt(String subject, String issuer ) {
         try {
+            String role= "USER";
+
+            if(subject.equals("manzi.yvonne@gmail.com")){
+                role="ADMIN";
+            }
             PrivateKey privateKey=JwtCreator.loadPrivateKey();
             JWTClaimsSet claimsSet = new JWTClaimsSet.Builder()
                     .subject(subject)
                     .issuer(issuer)
+                    .claim("role", role)
                     .expirationTime(new Date(new Date().getTime() + 3600 * 1000)) // Scadenza in un'ora
                     .build();
 
@@ -42,6 +48,18 @@ public class JwtCreator {
             signedJWT.sign(signer);
 
             return signedJWT.serialize();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static JWTClaimsSet  decodeJwt(String jwtToken) {
+        try {
+            SignedJWT signedJWT = SignedJWT.parse(jwtToken);
+            JWTClaimsSet claimsSet = signedJWT.getJWTClaimsSet();
+
+            return claimsSet;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
