@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/yogaLife/event")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:8100")
 public class EventController {
 
     @Autowired

@@ -11,21 +11,28 @@ public class Event {
 
     @Id
     private String id;
-    private String startDate;
-    private String endDate;
-    private String startTime;
-    private String endTime;
-    private int price;
+
+    private String nome;
+    private String durata;
+    private int prezzo;
+    private String inizioFine;
+    private String giorni;
+    private String orario;
+
+    private int posti;
 
     public Event() {
     }
 
-    public Event( String startDate, String endDate, String startTime, String endTime, int price) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.price = price;
+    public Event(String id, String nome, String durata, int prezzo, String inizioFine, String giorni, String orario, int posti) {
+        this.id = id;
+        this.nome = nome;
+        this.durata = durata;
+        this.prezzo = prezzo;
+        this.inizioFine = inizioFine;
+        this.giorni = giorni;
+        this.orario = orario;
+        this.posti=posti;
     }
 
     public String getId() {
@@ -36,43 +43,59 @@ public class Event {
         this.id = id;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public String getNome() {
+        return nome;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getEndDate() {
-        return endDate;
+    public String getDurata() {
+        return durata;
     }
 
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
+    public void setDurata(String durata) {
+        this.durata = durata;
     }
 
-    public String getStartTime() {
-        return startTime;
+    public int getPrezzo() {
+        return prezzo;
     }
 
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
+    public void setPrezzo(int prezzo) {
+        this.prezzo = prezzo;
     }
 
-    public String getEndTime() {
-        return endTime;
+    public String getInizioFine() {
+        return inizioFine;
     }
 
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
+    public void setInizioFine(String inizioFine) {
+        this.inizioFine = inizioFine;
     }
 
-    public int getPrice() {
-        return price;
+    public String getGiorni() {
+        return giorni;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setGiorni(String giorni) {
+        this.giorni = giorni;
+    }
+
+    public String getOrario() {
+        return orario;
+    }
+
+    public void setOrario(String orario) {
+        this.orario = orario;
+    }
+
+    public int getPosti() {
+        return posti;
+    }
+
+    public void setPosti(int posti) {
+        this.posti = posti;
     }
 }

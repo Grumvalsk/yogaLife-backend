@@ -3,6 +3,8 @@ package com.grumvalski.yogaLifebackend.entity;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document("User")
 public class User {
 
@@ -15,16 +17,19 @@ public class User {
     private String phone;
     private String password;
 
+    private List<Event> listaCorsi;
+
 
     public User() {
     }
 
-    public User(String name, String lastName, String email, String phone, String password) {
+    public User(String name, String lastName, String email, String phone, String password, List listaCorsi) {
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
         this.password = password;
+        this.listaCorsi= listaCorsi;
     }
 
     public String getName() {
@@ -65,6 +70,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Event> getListaCorsi() {
+        return listaCorsi;
+    }
+
+    public void setListaCorsi(List<Event> listaCorsi) {
+        this.listaCorsi = listaCorsi;
     }
 }
 

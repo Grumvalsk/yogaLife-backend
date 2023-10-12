@@ -28,7 +28,7 @@ public class JwtCreator {
         try {
             String role= "USER";
 
-            if(subject.equals("manzi.yvonne@gmail.com")){
+            if(subject.equals("pino@gmail.com")){
                 role="ADMIN";
             }
             PrivateKey privateKey=JwtCreator.loadPrivateKey();
